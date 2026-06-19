@@ -1,12 +1,8 @@
-import sys
 from datetime import datetime
 from pathlib import Path
 
-from engines.base import LLMEngine
-from strategies.base import AuditStrategy
-
-from engines.ollama_engine import OllamaEngine
-from strategies.nestjs_app import NestJsStrategy
+from argus.engines.base import LLMEngine
+from argus.strategies.base import AuditStrategy
 
 
 class CodebaseAuditor:
@@ -30,18 +26,18 @@ class CodebaseAuditor:
                     files.append(path)
         return files
 
-    def execute(self, target_path: str):
+    def execute(self, target_path: str) -> int:
         target_dir = Path(target_path).resolve()
         if not target_dir.exists() or not target_dir.is_dir():
             print(f"❌ Path does not exist or is not a directory: {target_dir}")
-            return
+            return 1
 
         output_file_path = target_dir / self.output_name
         files_to_audit = self._gather_files(target_dir)
 
         if not files_to_audit:
             print("❌ No matching files found based on the selected audit strategy.")
-            return
+            return 1
 
         print(
             f"🔍 Starting code audit using engine: '{self.engine.__class__.__name__}'"
@@ -84,12 +80,4 @@ class CodebaseAuditor:
             except Exception as e:
                 print(f"❌ Failed to audit {relative_path}: {e}")
 
-
-if __name__ == "__main__":
-    target = sys.argv[1] if len(sys.argv) > 1 else "../attendease-server"
-
-    engine = OllamaEngine(model_name="qwen2.5-coder:7b")
-    strategy = NestJsStrategy()
-
-    auditor = CodebaseAuditor(engine, strategy)
-    auditor.execute(target)
+        return 0

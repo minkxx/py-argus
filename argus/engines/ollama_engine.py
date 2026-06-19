@@ -1,6 +1,6 @@
 import ollama
 from typing import Generator
-from engines.base import LLMEngine
+from argus.engines.base import LLMEngine
 
 
 class OllamaEngine(LLMEngine):
