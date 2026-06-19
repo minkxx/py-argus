@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "py-argus"
+version = "1.0.0"
+description = "A local AI-powered codebase audit CLI"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "ollama==0.6.2",
+    "pydantic==2.13.4",
+    "httpx==0.28.1",
+]
+
+[project.scripts]
+argus = "argus.cli:main"
+
+[tool.setuptools]
+[tool.setuptools.packages.find]
+include = ["argus*"]
