@@ -1,12 +1,28 @@
 import ollama
+from ollama import ResponseError
 from typing import Generator
 from argus.engines.base import LLMEngine
+
+
+def checkModelExists(model_name: str):
+    try:
+        ollama.show(model_name)
+    except ResponseError as re:
+        if re.status_code == 404:
+            print(
+                f"The model '{model_name}' does not exist. Please download it using 'ollama pull {model_name}'"
+            )
+            exit()
+        else:
+            print(f"An unexpected error occurred: {re}")
+            exit()
 
 
 class OllamaEngine(LLMEngine):
     """Ollama local AI engine implementation."""
 
     def __init__(self, model_name: str = "qwen2.5-coder:7b"):
+        checkModelExists(model_name)
         super().__init__(model_name)
 
     def stream_chat(
