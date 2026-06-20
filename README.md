@@ -23,6 +23,11 @@ options:
   -m, --model MODEL     Ollama model name to use for the audit.
   -o, --output-name OUTPUT_NAME
                         Markdown file name to write inside the audited directory.
+  -l, --list            List available components.
+  -s, --strategy [STRATEGY]
+                        Strategy name to use for the audit.
+  -e, --engine [ENGINE]
+                        Engine name to use for the audit.
 ```
 
 ### import usage
@@ -38,4 +43,38 @@ if __name__ == "__main__":
 
     auditor.execute(".")
 
+```
+
+## Build - DIY
+
+#### 1. Git clone this repo
+
+```bash
+git clone https://github.com/minkxx/py-argus.git
+
+cd py-argus
+```
+
+#### 2. Install required dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+#### 3. Build the `py-argus` package
+
+```bash
+python -m build
+```
+
+#### 4. Install the `py-argus` package
+
+```bash
+pip install -e .
+```
+
+#### 5. Use it
+
+```bash
+argus --help
 ```
