@@ -1,7 +1,7 @@
 import ollama
 from ollama import ResponseError
 from typing import Generator
-from argus.engines.base import LLMEngine
+from judex.engines.base import LLMEngine
 
 
 def checkModelExists(model_name: str):

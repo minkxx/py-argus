@@ -1,4 +1,4 @@
-from argus.strategies.base import AuditStrategy
+from judex.strategies.base import AuditStrategy
 
 
 class NestJsStrategy(AuditStrategy):

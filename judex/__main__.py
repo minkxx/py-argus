@@ -1,4 +1,4 @@
-from argus.cli import main
+from judex.cli import main
 
 
 if __name__ == "__main__":

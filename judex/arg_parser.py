@@ -3,7 +3,7 @@ import argparse
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
-        prog="argus",
+        prog="judex",
         description="Audit a codebase and generate a markdown review report.",
     )
     parser.add_argument(

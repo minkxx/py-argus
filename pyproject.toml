@@ -3,8 +3,8 @@ requires = ["setuptools>=68", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "py-argus"
-version = "1.0.0"
+name = "judex-auditor"
+version = "1.0.1"
 description = "A local AI-powered codebase audit CLI"
 readme = "README.md"
 requires-python = ">=3.11"
@@ -14,11 +14,11 @@ dependencies = [
     "httpx==0.28.1",
 ]
 [project.urls]
-"Homepage" = "https://github.com/minkxx/py-argus"
+"Homepage" = "https://github.com/minkxx/judex-auditor"
 
 [project.scripts]
-argus = "argus.cli:main"
+judex = "judex.cli:main"
 
 [tool.setuptools]
 [tool.setuptools.packages.find]
-include = ["argus*"]
+include = ["judex*"]

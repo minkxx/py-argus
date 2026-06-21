@@ -1,17 +1,17 @@
-# Py-Argus
+# Judex-Auditor
 
 A local AI-powered codebase audit CLI
 
 ## Installation
 
 ```bash
-pip install py-argus
+pip install judex-auditor
 ```
 
 ### CLI Usage
 
 ```bash
-usage: argus [-h] [-m MODEL] [-o OUTPUT_NAME] [target_path]
+usage: judex [-h] [-m MODEL] [-o OUTPUT_NAME] [-l] [-s [STRATEGY]] [-e [ENGINE]] [target_path]
 
 Audit a codebase and generate a markdown review report.
 
@@ -33,7 +33,7 @@ options:
 ### import usage
 
 ```python
-from argus import NestJsStrategy, OllamaEngine, CodebaseAuditor
+from judex import NestJsStrategy, OllamaEngine, CodebaseAuditor
 
 if __name__ == "__main__":
     engine = OllamaEngine("qwen2.5-coder:7b")
@@ -50,9 +50,9 @@ if __name__ == "__main__":
 #### 1. Git clone this repo
 
 ```bash
-git clone https://github.com/minkxx/py-argus.git
+git clone https://github.com/minkxx/judex-auditor.git
 
-cd py-argus
+cd judex-auditor
 ```
 
 #### 2. Install required dependencies
@@ -61,13 +61,13 @@ cd py-argus
 pip install -r requirements.txt
 ```
 
-#### 3. Build the `py-argus` package
+#### 3. Build the `judex-auditor` package
 
 ```bash
 python -m build
 ```
 
-#### 4. Install the `py-argus` package
+#### 4. Install the `judex-auditor` package
 
 ```bash
 pip install -e .
@@ -76,5 +76,5 @@ pip install -e .
 #### 5. Use it
 
 ```bash
-argus --help
+judex --help
 ```

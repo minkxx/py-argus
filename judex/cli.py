@@ -1,20 +1,20 @@
-from argus.audit import CodebaseAuditor
-from argus.arg_parser import build_parser
+from judex.audit import CodebaseAuditor
+from judex.arg_parser import build_parser
 
 import importlib
 import sys
 import pkgutil
-from argus.strategies.base import AuditStrategy
-from argus.engines.base import LLMEngine
+from judex.strategies.base import AuditStrategy
+from judex.engines.base import LLMEngine
 
 
 def listStrategies():
     strategies = []
 
-    import argus.strategies
+    import judex.strategies
 
-    for finder, name, ispkg in pkgutil.iter_modules(argus.strategies.__path__):
-        full_module_name = f"{argus.strategies.__name__}.{name}"
+    for finder, name, ispkg in pkgutil.iter_modules(judex.strategies.__path__):
+        full_module_name = f"{judex.strategies.__name__}.{name}"
         module = importlib.import_module(full_module_name)
 
         for attribute_name in dir(module):
@@ -32,10 +32,10 @@ def listStrategies():
 def listEngines():
     engines = []
 
-    import argus.engines
+    import judex.engines
 
-    for finder, name, ispkg in pkgutil.iter_modules(argus.engines.__path__):
-        full_module_name = f"{argus.engines.__name__}.{name}"
+    for finder, name, ispkg in pkgutil.iter_modules(judex.engines.__path__):
+        full_module_name = f"{judex.engines.__name__}.{name}"
         module = importlib.import_module(full_module_name)
 
         for attribute_name in dir(module):

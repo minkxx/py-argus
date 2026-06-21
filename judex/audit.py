@@ -1,8 +1,8 @@
 from datetime import datetime
 from pathlib import Path
 
-from argus.engines.base import LLMEngine
-from argus.strategies.base import AuditStrategy
+from judex.engines.base import LLMEngine
+from judex.strategies.base import AuditStrategy
 
 
 class CodebaseAuditor:
